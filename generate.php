@@ -1,4 +1,6 @@
 <?php
+$site_url = 'https://detroitpowerwashing.com';
+
 $counties_to_create = array(
 	'Oakland County',
 	'Macomb County',
@@ -31,12 +33,14 @@ foreach ($folders as $folder) {
 
 //grab all locations from csv
 $locations = fopen('data/cities_all_columns.csv', 'r');
+
+// Create all pages
 while (($line = fgetcsv($locations)) !== FALSE) {
 	
 	foreach ($counties_to_create as $county) {
 		
 		if($line[1] == $county && $line[3] == $in_state && strpos($line[0], '(') == false ){
-			// && $line[0] == 'Port Huron'){
+			 //&& $line[0] == 'Port Huron'){
 			
 			$city = $line[0];
 			$county = $line[1];
@@ -67,6 +71,32 @@ while (($line = fgetcsv($locations)) !== FALSE) {
 fclose($locations);
 
 
+// create sitemap
+$pages = glob("dist/*.php");
+$sitemap = fopen('dist/sitemap.xml', "w") or die("Unable to open file!");
+
+$txt = '
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+   		<loc>' . $site_url . '</loc>
+    	<lastmod>' . date('c',time()) . '</lastmod>
+  	</url>';
+foreach ($pages as $page) {
+	$cur_page = str_replace('dist', $site_url, $page);
+	$txt .= '
+	<url>
+		<loc>' . $cur_page . '</loc>
+		' . 
+		'<lastmod>' . date('c',time()) . '</lastmod>
+	' . 
+	'</url>';
+}
+$txt .= '
+</urlset>';
+
+fwrite($sitemap, $txt);
+fclose($sitemap);
 
 
 
@@ -76,8 +106,6 @@ fclose($locations);
 /*
 FUNCTIONS
 */
-
-
 function recurse_copy($src,$dst) { 
     $dir = opendir($src); 
     @mkdir($dst); 

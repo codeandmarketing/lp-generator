@@ -1,27 +1,14 @@
-# What It Does
+# What it does and how it works
 
-Creates landing pages
+Creates landing pages based on content in templates files / sub folders. Create a template file and whatever dependencies needed will be transferred over to the newly created dist folder when you run index.php. Modifying the code will allow you to generate a landing page for every city in the united states, or you can specify you state and counties. Transfer contents of the dist folder to production for us.
 
 # Usage 
 
-1. Config
-
-Add your counties in generate.php
-Add your state in generate.php
-
-2. Create Template
-
-Create a template files, folders, etc within the templates folder. Create random text blocks or whatever using php. Should recursively add all folders and files. You may edit isolated files after creation for a more unique situation.
-
-Dist folder will be created and you can copy to a live server or just run it on a live server then manually move the files.
-
-3. Generate Pages
-
-Run index.php
-
-# Bug Reporting
-
-Report all bugs in detail to hello@alexlhunt.com
+1. Add your counties in generate.php
+2. Add your state in generate.php
+3. Add your site URL in gernate.php
+4. Create template files
+5. Run index.php
 
 # Future Features
 
