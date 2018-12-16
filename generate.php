@@ -39,8 +39,8 @@ while (($line = fgetcsv($locations)) !== FALSE) {
 	
 	foreach ($counties_to_create as $county) {
 		
-		if($line[1] == $county && $line[3] == $in_state && strpos($line[0], '(') == false //){
-			 && $line[0] == 'Port Huron'){
+		if($line[1] == $county && $line[3] == $in_state && strpos($line[0], '(') == false ){
+			 //&& $line[0] == 'Port Huron'){
 			
 			$city = $line[0];
 			$county = $line[1];
