@@ -2,7 +2,7 @@
 
 Creates landing pages
 
-# Useage 
+# Usage 
 
 1. Config
 
@@ -11,13 +11,13 @@ Add your state in generate.php
 
 2. Create Template
 
-Create a template files, folders, etc within the templates folder. Create random text blocks or whatever using php. Should recursivly add all folders and files. You may edit isolated files after creation for a more unique situation.
+Create a template files, folders, etc within the templates folder. Create random text blocks or whatever using php. Should recursively add all folders and files. You may edit isolated files after creation for a more unique situation.
 
 Dist folder will be created and you can copy to a live server or just run it on a live server then manually move the files.
 
 3. Generate Pages
 
-run index.php
+Run index.php
 
 # Bug Reporting
 
@@ -25,4 +25,4 @@ Report all bugs in detail to hello@alexlhunt.com
 
 # Future Features
 
-GUI
+GUI that includes selection of all locations, remove all landing pages.
