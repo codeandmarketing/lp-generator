@@ -39,8 +39,8 @@ while (($line = fgetcsv($locations)) !== FALSE) {
 	
 	foreach ($counties_to_create as $county) {
 		
-		if($line[1] == $county && $line[3] == $in_state && strpos($line[0], '(') == false ){
-			 //&& $line[0] == 'Port Huron'){
+		if($line[1] == $county && $line[3] == $in_state && strpos($line[0], '(') == false //){
+			 && $line[0] == 'Port Huron'){
 			
 			$city = $line[0];
 			$county = $line[1];
@@ -57,7 +57,14 @@ while (($line = fgetcsv($locations)) !== FALSE) {
 				echo '<a href="' . $file_name . '">' . $file_name . '</a><br>';
 
 				$cur_file = fopen($file_name, "w") or die("Unable to open file!");
-				$txt = file_get_contents($template);
+				$txt = '<?php ';
+				$txt .= '$city = "' . $city . '"; ';
+				$txt .= '$state = "' . $state . '"; ';
+				$txt .= '$state_abbr = "' . $state_abbr . '"; ';
+				$txt .= '$zip_codes = "' . $zip_codes . '"; '; 
+				$txt .= '$county = "' . $county . '"; '; 
+				$txt .= '?> ';
+				$txt .= file_get_contents($template);
 				fwrite($cur_file, $txt);
 				fclose($cur_file);
 

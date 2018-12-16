@@ -7,7 +7,17 @@ Creates landing pages based on content in templates files / sub folders. Create 
 1. Add your counties in generate.php
 2. Add your state in generate.php
 3. Add your site URL in gernate.php
-4. Create template files
+4. Create template files in template folder.
+Make sure to include this code in your template file. It will allow you to use location specific variables in your template. Sample template is included.
+```
+<?php 
+$city = isset($city) ? $city : 'CITY' ;
+$state = isset($state) ? $state : 'STATE' ;
+$state_abbr = isset($state_abbr) ? $state_abbr : 'ST' ;
+$zip_codes = isset($zip_codes) ? $zip_codes : 'ZIPCODES' ;
+$county = isset($county) ? $county : 'COUNTY' ;
+?>
+```	
 5. Run index.php
 
 # Future Features
