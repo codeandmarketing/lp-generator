@@ -40,7 +40,7 @@ while (($line = fgetcsv($locations)) !== FALSE) {
 	foreach ($counties_to_create as $county) {
 		
 		if($line[1] == $county && $line[3] == $in_state && strpos($line[0], '(') == false ){
-			 //&& $line[0] == 'Port Huron'){
+			 // && $line[0] == 'Port Huron'){
 			
 			$city = $line[0];
 			$county = $line[1];
@@ -56,6 +56,7 @@ while (($line = fgetcsv($locations)) !== FALSE) {
 				$file_name = strtolower('dist/' . $service_type_url_part . '-' . $location_url_part . ".php");
 				echo '<a href="' . $file_name . '">' . $file_name . '</a><br>';
 
+				//Build PHP File
 				$cur_file = fopen($file_name, "w") or die("Unable to open file!");
 				$txt = '<?php ';
 				$txt .= '$city = "' . $city . '"; ';
@@ -139,5 +140,3 @@ function recursiveRemove($dir) {
     }
     rmdir($dir);
 }
-
-

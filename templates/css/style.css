@@ -1,0 +1,207 @@
+/*-------------------------------
+viewport
+-------------------------------*/
+@-ms-viewport{
+  width: device-width;
+}
+/*end viewpower*/
+
+
+
+/*-------------------------------
+reset css
+-------------------------------*/
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+/*end reset*/
+
+
+
+/*-------------------------------
+default styles 
+-------------------------------*/
+:root {
+	--padding-small:10px;
+	--padding_container:20px 10px; 
+	--padding_element:10px 0;
+}
+body{
+	font-size:1rem;
+	font-family: sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-weight:bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+	padding: var(--padding_element);
+}
+
+h1{
+	font-size:2rem;
+}
+h2{
+	font-size:1.5rem;
+}
+h3{
+	font-size:1rem;
+}
+p{
+
+}
+img{
+	width:100%;
+	height:auto;
+}
+i, em{
+	font-style: italic;
+}
+b, strong{
+	font-weight: bold;
+}
+/*end default styles */
+
+
+
+
+
+
+/*-------------------------------
+grid and layout
+-------------------------------*/
+#wrapper{
+	max-width:1200px;
+	margin:0 auto;
+}
+
+.flex-grid {
+  display: flex;
+}
+.col {
+  flex: 1;
+  padding: var(--padding_element);
+  padding-left: var(--padding-small);
+}
+.col:nth-of-type(1){
+	padding-left:0;
+}
+header, main, aside, footer, .container{
+	padding: var(--padding_container);
+}
+main{
+	flex: 2;
+}
+aside{
+	flex: 1;
+}
+/*small*/
+@media screen and (max-width:767px){
+	.flex-grid {
+	    display: block;
+	}
+	.col{
+		padding:0;
+	}
+	.hide-small{
+		display: none !important;
+	}
+}
+/*large*/
+@media screen and (min-width:768px){
+	.hide-large{
+		display: none !important;
+	}
+}
+/*end grid and layout*/
+
+
+/*-------------------------------
+helper classes 
+-------------------------------*/
+.text-center{
+	text-align:center;
+}
+.text-left{
+	text-align:left;
+}
+.text-right{
+	text-align:right;
+}
+.float-left{
+	float:left;
+}
+.float-right{
+	float:right;
+}
+
+/*end helper classes */
+
+
+
+
+
+
+
+
+
+
+
+
+
+header{
+	background:#222222;
+	color:white;
+	padding-top:50px;
+	padding-bottom:50px;
+}
+
+main{
+	background:white;
+}
+.fa-star{
+	color:orange;
+}
+.reviews img{
+	max-width:50px;
+	padding:0 10px 10px 10px;
+}
+aside{
+	background:#EFEEE2;
+}
+
+footer{
+	background:#222222;
+	color:#fff;
+}
+footer a{
+	color:lightgreen;
+}
+
+.mobile_footer_phone{
+	text-decoration: none;
+	font-weight:bold;
+	font-size:1.4rem;
+}
+.click-to-call{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background:orange;
+	color:#fff;
+}
+
+@media screen and (max-width:767px){
+	#wrapper{
+		margin-bottom:60px;
+	}
+}
