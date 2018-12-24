@@ -21,7 +21,8 @@ default styles
 -------------------------------*/
 :root {
 	--padding-small:10px;
-	--padding_container:20px 10px; 
+	--padding-large:20px;
+	--padding_container:20px 20px; 
 	--padding_element:10px 0;
 }
 body{
@@ -57,6 +58,9 @@ h3{
 	font-size:1rem;
 }
 p{
+
+}
+a{
 
 }
 img{
@@ -95,11 +99,19 @@ grid and layout
 .col:nth-of-type(1){
 	padding-left:0;
 }
-header, main, aside, footer, .container{
+header, nav ul li a, main, aside, footer, .container{
 	padding: var(--padding_container);
 }
+nav ul li{
+	display: inline;
+}
+nav ul li a{
+	display: inline-block;
+	text-decoration: none;
+	font-weight:bold;
+}
 main{
-	flex: 2;
+	flex: 3;
 }
 aside{
 	flex: 1;
@@ -115,11 +127,27 @@ aside{
 	.hide-small{
 		display: none !important;
 	}
+	nav.hamburger ul li{
+		display: block;
+	}
+	nav#primary_nav{
+		display: none;
+	}
+	nav ul li{
+	display: block;
+	text-align:center;
+	}
+	nav ul li a{
+		display: block;
+	}
 }
 /*large*/
 @media screen and (min-width:768px){
 	.hide-large{
 		display: none !important;
+	}
+	nav.hamburger{
+		display: none;
 	}
 }
 /*end grid and layout*/
@@ -143,6 +171,12 @@ helper classes
 .float-right{
 	float:right;
 }
+.show{
+	display: block !important;
+}
+.hide{
+	display: none !important;
+}
 
 /*end helper classes */
 
@@ -156,13 +190,22 @@ helper classes
 
 
 
-
+body{
+	background:#f9f9f9;
+}
 
 header{
 	background:#222222;
 	color:white;
 	padding-top:50px;
 	padding-bottom:50px;
+}
+
+nav{
+	background:#494949;
+}
+nav ul li a{
+	color:#fff;
 }
 
 main{

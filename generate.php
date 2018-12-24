@@ -39,8 +39,8 @@ while (($line = fgetcsv($locations)) !== FALSE) {
 	
 	foreach ($counties_to_create as $county) {
 		
-		if($line[1] == $county && $line[3] == $in_state && strpos($line[0], '(') == false ){
-			 // && $line[0] == 'Port Huron'){
+		if($line[1] == $county && $line[3] == $in_state && strpos($line[0], '(') == false //){
+			  && $line[0] == 'Port Huron'){
 			
 			$city = $line[0];
 			$county = $line[1];
@@ -52,9 +52,14 @@ while (($line = fgetcsv($locations)) !== FALSE) {
 
 				$service_type_url_part = str_replace('templates/' , '', $template);
 				$service_type_url_part = str_replace('.php' , '', $service_type_url_part);
-				$location_url_part = str_replace(' ' , '-', $city . '-' . $state_abbr);
-				$file_name = strtolower('dist/' . $service_type_url_part . '-' . $location_url_part . ".php");
+				$location_url_city = str_replace(' ' , '-', $city);
+				$file_name = strtolower('dist/' . $state_abbr  . '/' . $service_type_url_part . '-' . $location_url_city . ".php");
 				echo '<a href="' . $file_name . '">' . $file_name . '</a><br>';
+ 
+				if ( ! file_exists('dist/' . strtolower($state_abbr)) ) {
+				    mkdir( 'dist/' . strtolower($state_abbr) );
+				}
+				
 
 				//Build PHP File
 				$cur_file = fopen($file_name, "w") or die("Unable to open file!");

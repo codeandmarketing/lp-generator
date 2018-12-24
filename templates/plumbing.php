@@ -15,7 +15,8 @@ $keywords = array(
 $phone_num = '313-333-3333';
 $phone_link = '<a href="tel:+1-' . $phone_num . '"> ' . $phone_num . ' </a>';
 $build_location = $city . '%20' . $state . '%20';
- ?>
+
+?>
 <!doctype html>
 
 <html lang="en">
@@ -39,6 +40,18 @@ $build_location = $city . '%20' . $state . '%20';
 	<header class="text-center">
 		<h1><?php echo $keyword; ?> Company In <?php echo $city . ' ' . $state_abbr; ?></h1>
 	</header>
+	<nav class="hamburger">
+		<ul>
+			<li><a href="javascript:void(0)" onclick="toggle_nav()"><i class="fa fa-bars"></i></a></li>
+		</ul>
+	</nav>
+	<nav id="primary_nav">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
 
 	<div id="content" class=" flex-grid">
 		<main>
@@ -232,7 +245,7 @@ $build_location = $city . '%20' . $state . '%20';
 					' ' .$zip_codes . 
 					' ' .$county
 					;?>
-				<iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=<?php echo $build_location; ?>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+				<!-- <iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=<?php echo $build_location; ?>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> -->
 			</p>
 
 		</aside>
@@ -260,6 +273,21 @@ $build_location = $city . '%20' . $state . '%20';
 </div>
 </a>
 
+
+<script>
+	function toggle_nav(evt){
+		var element = document.getElementById("primary_nav");
+
+		if (element.classList.contains("show")) {
+  			element.classList.add("hide");
+  			element.classList.remove("show");
+		} else{
+  			element.classList.add("show");
+  			element.classList.remove("hide");
+		}
+		return;
+	}
+</script>
 
 </body>
 </html>
